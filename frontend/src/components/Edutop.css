@@ -26,3 +26,22 @@
     max-width: 100%;
     height: auto;
 }
+
+@media only screen and (max-width: 600px) {
+    
+    .edu-head{
+        display: flex;
+        margin-bottom: 60px;
+        flex-direction: column;
+        
+    }
+    .edu-para{
+        margin-right: 0px;
+        width: 100%;
+    }
+    .edu-img{
+        margin: -15px;
+        width: 100%;
+    }
+
+}
