@@ -15,8 +15,16 @@ const monthArr = ["January", "February", "March", "April", "May", "June", "July"
 const currMonth = date.getMonth();
 const currDate = date.getDate();
 
-const collectionName = `${currDate} ${monthArr[currMonth]}`
+const collectionName = `${currDate}-${monthArr[currMonth]}`
+
+const ArticleSchema = new Schema ({
+  heading: {type: String},
+  description: {type: String},
+  link: {type: String},
+  color: {type: String}
+})
 
 const Data = mongoose.model(`${collectionName}`, DataSchema)
+const Article = mongoose.model("Articles", ArticleSchema);
 
-module.exports = {Data}
+module.exports = { Data, Article }
