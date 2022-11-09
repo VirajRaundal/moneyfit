@@ -1,0 +1,26 @@
+.edu-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 32.6%);
+    grid-template-rows:  225px;
+    grid-gap: 1%;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1200px){
+    .edu-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 49.5%);
+        grid-template-rows:  225px;
+        grid-gap: 1%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .edu-grid{
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+
+        grid-gap: 0%;
+    }
+
+
+}
