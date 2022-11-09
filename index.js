@@ -50,3 +50,9 @@ app.post("/article-publish", (req, res) => {
     .then(() => console.log('Article published'))
     .catch(err => console.error(`Error while publishing article: ${err}`))
 })
+
+app.get("/article-publish", (req,res) => {
+  Article.find()
+    .then(response => res.send(response))
+    .catch(err => console.error(`Error while displaying articles: ${err}`))
+})
