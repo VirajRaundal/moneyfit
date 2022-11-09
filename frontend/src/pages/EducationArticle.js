@@ -17,7 +17,7 @@ const EducationArticle = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/article-publish", {
+    fetch("https://gullak-hackophilia.herokuapp.com/article-publish", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -36,20 +36,38 @@ const EducationArticle = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          width: "50%",
+          display: "flex",
+          flexDirection: "column",
+          marginLeft: "auto",
+          marginRight: "auto",
+          gap: 10,
+        }}
+      >
         <input
           type="text"
           placeholder="Heading of the article"
           onChange={handleChange}
           name="heading"
           value={data.heading}
+          style={{ fontSize: "18px", padding: 5 }}
         />
-        <input
+        {/* <input
           type="text"
           placeholder="Description of the article"
           onChange={handleChange}
           name="description"
           value={data.description}
+        /> */}
+        <textarea
+          name="description"
+          value={data.description}
+          onChange={handleChange}
+          placeholder="Description"
+          style={{ fontSize: "18px", padding: 5 }}
         />
         <input
           type="text"
@@ -57,6 +75,7 @@ const EducationArticle = () => {
           onChange={handleChange}
           name="link"
           value={data.link}
+          style={{ fontSize: "18px", padding: 5 }}
         />
         <input
           type="text"
@@ -64,6 +83,7 @@ const EducationArticle = () => {
           onChange={handleChange}
           name="color"
           value={data.color}
+          style={{ fontSize: "18px", padding: 5 }}
         />
         <button type="submit">Submit</button>
       </form>
