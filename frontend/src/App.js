@@ -1,13 +1,14 @@
 import React from "react";
-import EducationArticle from "./pages/EducationArticle";
+import Education from "./pages/Education.js";
+// import EducationArticle from "./pages/EducationArticle";
 
 function App() {
-
   return (
     <div>
-      <EducationArticle />
+      {/* <EducationArticle /> */}
+      <Education />
     </div>
-  )
+  );
 }
 
 export default App;

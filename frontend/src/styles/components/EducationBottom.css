@@ -1,0 +1,28 @@
+.edu-grid{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 25px;
+    row-gap: 35px;
+    justify-content: space-between;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1200px){
+    .edu-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 49.5%);
+        grid-auto-rows: minmax(200px, auto);
+        grid-gap: 1%;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .edu-grid{
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        grid-auto-rows: minmax(150px, auto);
+        grid-gap: 0%;
+    }
+
+
+}

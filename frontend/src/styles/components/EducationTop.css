@@ -1,0 +1,47 @@
+
+.edu-head{
+    display: flex;
+    margin-bottom: 60px;
+}
+
+.edu-para{
+    margin-right: 0px;
+    width: 60%;
+}
+.edu-para h1{
+    font-size: 2.5rem;
+    margin: 0px;
+}
+.edu-para p{
+    line-height: 1.6rem;
+    font-size: 1.1rem ;
+    font-weight: 500;
+    color: #888;
+}
+.edu-img{
+    margin-left: 50px;
+    width: 40%;
+}
+.edu-head img{
+    max-width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .edu-head{
+        display: flex;
+        margin-bottom: 60px;
+        flex-direction: column;
+        
+    }
+    .edu-para{
+        margin-right: 0px;
+        width: 100%;
+    }
+    .edu-img{
+        margin: -15px;
+        width: 100%;
+    }
+
+}

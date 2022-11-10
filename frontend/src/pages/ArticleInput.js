@@ -1,19 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const EducationArticle = () => {
-
   const [data, setData] = useState({
     heading: "",
     description: "",
     link: "",
-    color: ""
-  })
+    color: "",
+  });
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setData({ ...data, [name]: value })
-  }
+    setData({ ...data, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,10 +28,10 @@ const EducationArticle = () => {
       heading: "",
       description: "",
       link: "",
-      color: ""
+      color: "",
     });
-    window.alert("Submitted article")
-  }
+    window.alert("Submitted article");
+  };
 
   return (
     <div>
@@ -89,6 +88,6 @@ const EducationArticle = () => {
       </form>
     </div>
   );
-}
+};
 
-export default EducationArticle
+export default EducationArticle;
