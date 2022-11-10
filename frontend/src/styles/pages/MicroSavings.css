@@ -1,0 +1,32 @@
+.ms-payment-container {
+    border: 3px solid #9f2b68;
+    width: 30%;
+    margin-left: 10%;
+    border-radius: 10px;
+    height: 80vh;
+    overflow-y: scroll;
+}
+.ms-payment-container h1 {
+    text-align: center;
+    color: #9f2b68;
+}
+
+.ms-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffb4dc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9f2b68;
+    border-radius: 5px;
+    height: 1px;
+}

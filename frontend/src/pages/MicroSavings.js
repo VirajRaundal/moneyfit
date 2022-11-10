@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import MicroSavingsCard from '../components/MicroSavingsCard';
+import "../styles/pages/MicroSavings.css";
 
 const MicroSavings = () => {
 
   const [data, setData] = useState();
   const [load, setLoad] = useState(true);
-  const [roundedAmt, setRoundedAmt] = useState()
+  const [roundedAmt, setRoundedAmt] = useState();
+  const [totalAmt, setTotalAmt] = useState();
 
   useEffect(() => {
-    fetch("https://gullak-hackophilia.herokuapp.com/payment-history")
+    fetch("https://gullak-hackophilia.herokuapp.com/payment-complete-history")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        const num = data[0].transacAmt;
+        const size = data.length
+        const num = data[size-1].transacAmt;
         setRoundedAmt(roundUpNearest10(num));
-        console.log(num)
         setLoad(false);
+
+        let sum = 0;
+        for(let i=0; i<size; i++) {
+          sum = sum + (roundUpNearest10(data[i].transacAmt) - data[i].transacAmt)
+        }
+        setTotalAmt(sum);
       });
   }, [])
 
@@ -27,8 +36,19 @@ const MicroSavings = () => {
       {load ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
-          <h1>{roundedAmt}</h1>
+        <div className="ms-payment-container">
+          <h1>Payment History</h1>
+          <div className='ms-card-container'>
+            {data.map((oneData, key) => (
+              <MicroSavingsCard
+              transacBankAcc = {oneData.transacBankAcc}
+              transacAmt = {oneData.transacAmt}
+              transacName = {oneData.transacName}
+              addedAmt = {roundUpNearest10(oneData.transacAmt) - oneData.transacAmt}
+              numKey={key}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

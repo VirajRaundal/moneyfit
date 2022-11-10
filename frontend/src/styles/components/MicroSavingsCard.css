@@ -1,0 +1,35 @@
+.msc-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    height: 40px;
+}
+.msc-desc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.msc-desc p {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+
+.msc-amt {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 25%;
+    align-items: center;
+    justify-content: space-between;
+}
+.msc-amt div {
+    height: 40px;
+    width: 1px;
+    background-color: #9f2b68;
+}
