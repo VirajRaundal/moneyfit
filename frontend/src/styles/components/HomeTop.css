@@ -16,3 +16,24 @@
     height: 300px;
     background-color: red;
 }
+
+@media only screen and (max-width: 600px){
+    .landing-top{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 350px;
+    }
+    .landing-top-text{
+        width: 100%;
+        font-size: 40px;
+        font-weight: 100;
+     
+    }
+    .landing-top-image{
+        width: 100%;
+        height: 300px;
+        margin-left: 0px;
+        background-color: red;
+    }
+}
