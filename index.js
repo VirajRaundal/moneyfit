@@ -26,7 +26,7 @@ mongoose.connect(dbURi)
   .then(() => console.log(`Connected to database...`))
   .catch(err => console.log(`Error encountered while connecting to db: ${err}`))
 
-const { Data, Article } = require("./schema");
+const { Data, PaymentHistory, Article } = require("./schema");
 
 app.get("/", (req, res) => {
   res.send("Redirect to /xyz")
@@ -36,8 +36,17 @@ app.post("/payment-history", (req, res) => {
   const data = new Data(req.body);
   res.json(data);
   data.save()
+    .then(() => console.log(`Payment daily history saved`))
+    .catch(err => console.error(`Error while saving payment daily history: ${err}`))
+
+  const payment = new PaymentHistory(req.body);
+  res.json(payment);
+  payment
+    .save()
     .then(() => console.log(`Payment history saved`))
-    .catch(err => console.error(`Error while saving payment history: ${err}`))
+    .catch((err) =>
+      console.error(`Error while saving payment history: ${err}`)
+    );
 })
 
 app.get("/payment-history", (req, res) => {

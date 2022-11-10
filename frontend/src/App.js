@@ -6,6 +6,7 @@ import ArticleInput from "./pages/ArticleInput.js";
 import MicroSavings from "./pages/MicroSavings.js";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import PaymentTracker from "./pages/PaymentTracker.js";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/article-input" element={<ArticleInput />} />
         <Route path="/microsavings" element={<MicroSavings />} />
         <Route path="/education" element={<Education />} />
+        <Route path="/payment-tracker" element={<PaymentTracker />} />
       </Routes>
       <Footer />
     </>
