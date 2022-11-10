@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const EducationArticle = () => {
+const ArticleInput = () => {
   const [data, setData] = useState({
     heading: "",
     description: "",
@@ -90,4 +90,4 @@ const EducationArticle = () => {
   );
 };
 
-export default EducationArticle;
+export default ArticleInput;
