@@ -1,0 +1,20 @@
+.landing-middle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 350px;
+    margin-top: 100px;
+}
+.landing-middle-text{
+    width: 50%;
+    margin-left: 200px;
+    font-weight: 100;
+    font-size: 20px;
+ 
+}
+.landing-middle-image{
+    width: 50%;
+   
+    height: 300px;
+    background-color: red;
+}
