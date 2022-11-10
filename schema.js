@@ -25,7 +25,7 @@ const ArticleSchema = new Schema ({
 })
 
 const Data = mongoose.model(`${collectionName}`, DataSchema)
-const PaymentHistory = mongoose.model(`Payment Historhy`, DataSchema);
+const PaymentHistory = mongoose.model(`Payment History`, DataSchema);
 const Article = mongoose.model("Articles", ArticleSchema);
 
-module.exports = { Data, Article }
+module.exports = { Data, Article, PaymentHistory }
