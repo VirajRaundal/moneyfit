@@ -1,0 +1,18 @@
+.landing-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 350px;
+}
+.landing-top-text{
+    width: 50%;
+    font-size: 50px;
+    font-weight: 100;
+ 
+}
+.landing-top-image{
+    width: 50%;
+    margin-left: 200px;
+    height: 300px;
+    background-color: red;
+}
