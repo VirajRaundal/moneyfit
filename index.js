@@ -40,7 +40,6 @@ app.post("/payment-history", (req, res) => {
     .catch(err => console.error(`Error while saving payment daily history: ${err}`))
 
   const payment = new PaymentHistory(req.body);
-  res.json(payment);
   payment
     .save()
     .then(() => console.log(`Payment history saved`))
