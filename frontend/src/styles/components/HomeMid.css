@@ -18,3 +18,25 @@
     height: 300px;
     background-color: red;
 }
+
+@media only screen and (max-width: 600px){
+    .landing-middle{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items:center;
+        height: 350px;
+    }
+    .landing-middle-text{
+        width: 100%;
+        margin-left: 0px;
+        font-weight: 100;
+        font-size: 20px;
+     
+    }
+    .landing-middle-image{
+        width: 100%;
+       
+        height: 300px;
+        background-color: red;
+    }
+}

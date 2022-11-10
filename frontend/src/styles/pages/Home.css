@@ -6,3 +6,11 @@
 .landing-center{
     width: 80%;
 }
+
+@media only screen and (max-width: 1000px){
+    .landing-center{
+        width: 95%;
+    }
+    
+
+}
