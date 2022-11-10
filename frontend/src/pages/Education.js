@@ -1,6 +1,6 @@
 import React from "react";
-import EducationBottom from "../components/EducationBottom.js";
-import EducationTop from "../components/EducationTop.js";
+import EducationBottom from "../components/EducationBottom";
+import EducationTop from "../components/EducationTop";
 import "../styles/pages/Education.css";
 
 function Education() {
