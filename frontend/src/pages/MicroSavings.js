@@ -7,7 +7,7 @@ const MicroSavings = () => {
   }
 
   const num = 398;
-  console.log(roundUpNearest10(num));
+  console.log(roundUpNearest10(num) - num);
 
   return (
     <div>

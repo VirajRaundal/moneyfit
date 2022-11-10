@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const DataSchema = new Schema ({
   transacName: {type: String},
   transacAmt: {type: String},
-  transacBankAcc: {type: String},
+  transacBankAcc: {type: Number},
   transacType: {type: String},
   transacID: {type: String}
 })

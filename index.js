@@ -40,6 +40,12 @@ app.post("/payment-history", (req, res) => {
     .catch(err => console.error(`Error while saving payment history: ${err}`))
 })
 
+app.get("/payment-history", (req, res) => {
+  Data.find()
+    .then(response => res.send(response))
+    .catch(err => console.log(`Error while getting payment history: ${err}`))
+})
+
 app.post("/article-publish", (req, res) => {
   const data = new Article(req.body);
   res.json(data);
