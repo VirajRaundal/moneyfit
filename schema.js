@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const DataSchema = new Schema ({
   transacName: {type: String},
-  transacAmt: {type: String},
-  transacBankAcc: {type: Number},
+  transacAmt: {type: Number},
+  transacBankAcc: {type: String},
   transacType: {type: String},
   transacID: {type: String}
 })
