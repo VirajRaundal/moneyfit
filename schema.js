@@ -10,10 +10,8 @@ const DataSchema = new Schema ({
 })
 
 const date = new Date;
-const monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-const currMonth = date.getMonth();
-const currDate = date.getDate();
+// date & month retrieval
 
 const collectionName = `${currDate}-${monthArr[currMonth]}`
 

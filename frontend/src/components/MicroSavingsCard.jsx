@@ -23,7 +23,7 @@ const MicroSavingsCard = (props) => {
   let color = ""
 
   if(props.numKey%2 === 0)
-    color = "#ffdcef";
+    color = "#c7d0ff";
   else if(props.numKey%2 === 1)
     color = "#ffffff";
   

@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className='Navbar'>
         <div className='Navbar-content'>
-          <div className='Navbar-logo' onClick={() => navigate("/")}>
+          <div className='Navbar-logo' onClick={() => navigate("/app")}>
           </div>
           <div className='navbar-links'>
             <NavLink className='Link1' to="/microsavings">Link1</NavLink>

@@ -1,28 +1,36 @@
 import React from "react";
-import Education from "./pages/Education.js";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home.js";
-import ArticleInput from "./pages/ArticleInput.js";
-import MicroSavings from "./pages/MicroSavings.js";
-import Navbar from "./components/Navbar.jsx";
-import Footer from "./components/Footer.jsx";
-import PaymentTracker from "./pages/PaymentTracker.js";
 import "./App.css";
+import ArticleInput from "./pages/ArticleInput";
+import Education from "./pages/Education";
+import Home from "./pages/Home";
+import LandingPage from "./pages/LandingPage";
+import MicroSavings from "./pages/MicroSavings";
+import PaymentTracker from "./pages/PaymentTracker";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { Routes, Route, IndexRoute } from "react-router-dom";
 
-function App() {
+const App = () => {
+
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/article-input" element={<ArticleInput />} />
-        <Route path="/microsavings" element={<MicroSavings />} />
-        <Route path="/payment-tracker" element={<PaymentTracker />} />
-        <Route path="/education" element={<Education />} />
-      </Routes>
-      <Footer />
+
+      {window.location.pathname === "/landing-page" ? <LandingPage /> : (
+        <>
+        <Navbar />
+        <Routes>
+          {/* <Route path="/" element={<LandingPage />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/article-input" element={<ArticleInput />} />
+          <Route path="/microsavings" element={<MicroSavings />} />
+          <Route path="/payment-tracker" element={<PaymentTracker />} />
+          <Route path="/education" element={<Education />} />
+        </Routes>
+        <Footer />
+        </>
+      )}
     </>
   );
-}
+};
 
 export default App;

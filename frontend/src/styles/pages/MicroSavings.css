@@ -9,7 +9,7 @@
 }
 
 .ms-payment-container {
-    border: 3px solid #9f2b68;
+    border: 3px solid #6074d7;
     width: 40%;
     border-radius: 10px;
     height: 80vh;
@@ -17,7 +17,7 @@
 }
 .ms-payment-container h1 {
     text-align: center;
-    color: #9f2b68;
+    color: #6074d7;
     padding: 15px;
 }
 
@@ -28,11 +28,10 @@
 }
 
 div::-webkit-scrollbar-track {
-    background: #ffa9d7;
+    background: #c7d0ff;
 }
 div::-webkit-scrollbar-thumb {
-    background: #9f2b68;
-    border-radius: 5px;
+    background: #6074d7;
     height: 1px;
 }
 
