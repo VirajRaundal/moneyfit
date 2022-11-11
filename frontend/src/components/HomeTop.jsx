@@ -19,7 +19,6 @@ const HomeTop = () => {
         </p>
       </div>
       <div className="landing-top-image">
-        <h1>image</h1>
       </div>
     </div>
   );

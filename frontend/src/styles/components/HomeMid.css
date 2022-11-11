@@ -14,9 +14,11 @@
 }
 .landing-middle-image{
     width: 50%;
-   
-    height: 300px;
-    background-color: red;
+    background-image: url("../../assets/9feaaf25caad18424d233c3aa0cde683-removebg-preview.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
 }
 
 @media only screen and (max-width: 1000px){

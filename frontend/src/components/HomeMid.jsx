@@ -5,7 +5,6 @@ const HomeMid = () => {
     <div className='landing-middle'>
 
             <div className='landing-middle-image'>
-                <h1>image</h1>
             </div>
 
             <div className='landing-middle-text'>

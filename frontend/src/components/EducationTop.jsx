@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/components/EducationTop.css";
-import eduTop from "../assets/education-top-pic.jpg";
+import eduTop from "../assets/EducationImage.jpg";
 
 function EducationTop() {
   return (
