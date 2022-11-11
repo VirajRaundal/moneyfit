@@ -8,7 +8,7 @@ import MicroSavings from "./pages/MicroSavings";
 import PaymentTracker from "./pages/PaymentTracker";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Routes, Route, IndexRoute } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
 

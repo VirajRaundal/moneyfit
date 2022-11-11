@@ -1,0 +1,55 @@
+.ptc-body {
+    border-radius: 10px;
+    height: 75px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ptc-left-side {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.ptc-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ptc-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5px;
+}
+.ptc-details h1 {
+    font-size: 18px;
+}
+.ptc-details p {
+    font-size: 16px;
+    color: gray;
+}
+
+.ptc-right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 5px;
+}
+.ptc-right-side h1 {
+    font-size: 18px;
+}
+.ptc-right-side p {
+    font-size: 16px;
+    color:  gray;
+}
