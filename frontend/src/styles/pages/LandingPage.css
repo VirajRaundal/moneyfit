@@ -1,5 +1,57 @@
-.lp-body {
-    z-index: 10;
+.Landing-page{
+    background-color: #3858FF;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+
+}
+.TeamName{
+    font-size: 25px;
+    left: 130px;
+    top: 100px;
     position: absolute;
-    top: 0px;
+    color: white;
+}
+.Landing-page-text{
+    color: white;
+    position: absolute;
+    top: 250px;
+    left: 130px;
+}
+.Landing-page-text h3{
+    font-size: 120px;
+    margin: 20px 0px;
+}
+.Landing-page-text p{
+    font-size: 25px;
+    margin: 0px;
+    
+}
+.Landing-page-img{
+    position: absolute;
+    left: 600px;
+    top: -170px;
+}
+.Landing-page-img img{
+    width: 1100px;
+    
+}
+
+.Landing-Button{
+    background-color: rgb(136,91,249);
+    border: 0px;
+    width: 230px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 100px;
+    color: white;
+    position: absolute;
+    top: 550px;
+    left: 130px;
+    cursor: pointer;
 }
