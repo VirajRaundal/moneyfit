@@ -1,7 +1,16 @@
+.ms-sub-body {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .ms-payment-container {
     border: 3px solid #9f2b68;
-    width: 30%;
-    margin-left: 10%;
+    width: 40%;
     border-radius: 10px;
     height: 80vh;
     overflow-y: scroll;
@@ -9,6 +18,7 @@
 .ms-payment-container h1 {
     text-align: center;
     color: #9f2b68;
+    padding: 15px;
 }
 
 .ms-card-container {
@@ -17,16 +27,40 @@
     justify-content: stretch;
 }
 
-::-webkit-scrollbar {
-    width: 5px;
+div::-webkit-scrollbar-track {
+    background: #ffa9d7;
 }
-
-::-webkit-scrollbar-track {
-    background: #ffb4dc;
-}
-
-::-webkit-scrollbar-thumb {
+div::-webkit-scrollbar-thumb {
     background: #9f2b68;
     border-radius: 5px;
     height: 1px;
+}
+
+.ms-saving-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.ms-saving-container {
+    padding: 15px;
+}
+
+.ms-piggy-bank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+    height: 50vh;
+    background-image: url("../../assets/piggy-bank.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.ms-piggy-bank p {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 32px;
 }

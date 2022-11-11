@@ -2,6 +2,7 @@ import React from 'react'
 import { FcShop, FcClapperboard } from "react-icons/fc";
 import { MdOutlineFastfood } from "react-icons/md";
 import "../styles/components/MicroSavingsCard.css";
+import "../App.css"
 
 const MicroSavingsCard = (props) => {
 

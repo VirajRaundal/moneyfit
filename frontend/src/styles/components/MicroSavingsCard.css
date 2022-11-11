@@ -6,6 +6,8 @@
     padding: 15px;
     border-radius: 5px;
     height: 40px;
+    padding-top: 35px;
+    padding-bottom: 35px;
 }
 .msc-desc {
     display: flex;

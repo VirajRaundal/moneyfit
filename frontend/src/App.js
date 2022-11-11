@@ -7,6 +7,7 @@ import MicroSavings from "./pages/MicroSavings.js";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import PaymentTracker from "./pages/PaymentTracker.js";
+import "./App.css";
 
 function App() {
   return (
