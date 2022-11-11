@@ -15,12 +15,12 @@ const App = () => {
   return (
     <>
 
-      {window.location.pathname === "/landing-page" ? <LandingPage /> : (
+      {window.location.pathname === "/" ? <LandingPage /> : (
         <>
         <Navbar />
         <Routes>
           {/* <Route path="/" element={<LandingPage />} /> */}
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/article-input" element={<ArticleInput />} />
           <Route path="/microsavings" element={<MicroSavings />} />
           <Route path="/payment-tracker" element={<PaymentTracker />} />

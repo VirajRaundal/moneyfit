@@ -1,5 +1,29 @@
-.pt-card-container {
-    width: 50vw;
+.pt-sub-body {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
+}
+.pt-card-container {
+    width: 35vw;
+    height: 60vh;
+    padding: 20px;
+    overflow-y: scroll;
+}
+.pt-cc-heading {
+    font-size: 32px;
+    text-align: center;
+    color: #00d09b;
+    margin-bottom: 20px;
+}
+
+div::-webkit-scrollbar-track {
+    background: #a8f5e2;
+}
+
+div::-webkit-scrollbar-thumb {
+    background: #00d09b;
+    height: 1px;
 }

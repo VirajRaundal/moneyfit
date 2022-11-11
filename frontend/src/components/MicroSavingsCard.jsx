@@ -13,7 +13,7 @@ const MicroSavingsCard = (props) => {
   ];
   
   let imageArray = 0;
-  if(props.transacName === "Eating")
+  if(props.transacName === "Food")
     imageArray = 2;
   else if(props.transacName === "Entertainment")
     imageArray = 1;

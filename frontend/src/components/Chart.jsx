@@ -1,12 +1,12 @@
 import React from "react";
-import "./App.css";
 import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
+import "../styles/components/Chart.css";
 // import canvas from "react-chartjs-2";
 
-function App() {
+function Chart(props) {
   const state = {
-    labels: ["Food", "Entertainment", "Shopping", "Bills", "Travel"],
+    labels: ["Food", "Entertainment", "Shopping"],
     datasets: [
       {
         label: "Rainfall",
@@ -25,20 +25,19 @@ function App() {
         //   "#35014F",
         // ],
         hoverOffset: 10,
-        data: [400, 1000, 899, 300, 1500],
+        data: [props.foodSum, props.enterSum, props.shopSum],
       },
     ],
   };
 
   return (
-    <div className="App">
-      {/* <canvas width={1000} height={1000}> */}
+    <div className="chart-body">
       <Doughnut
         data={state}
         options={{
           title: {
             display: true,
-            text: "Rainfall Distribution",
+            text: "Your Expense Distribution",
             fontSize: 24,
           },
           legend: {
@@ -46,11 +45,10 @@ function App() {
             position: "right",
           },
         }}
-        className="chartClass"
+        className="chart-class"
       />
-      {/* </canvas> */}
     </div>
   );
 }
 
-export default App;
+export default Chart;

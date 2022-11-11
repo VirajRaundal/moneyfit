@@ -7,19 +7,22 @@
     justify-content: space-between;
     align-items: center;
 }
+.ptc-body h1 {
+    color: #009c75;
+}
 
 .ptc-left-side {
-    width: 40%;
+    width: 55%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: left;
+    gap: 15px;
 }
 .ptc-avatar {
     width: 30px;
     height: 30px;
     border-radius: 100%;
-    background-color: aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;
