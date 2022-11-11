@@ -1,0 +1,55 @@
+.Navbar{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+}
+
+
+.Navbar-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.Navbar-content p{
+    font-size: 20px;
+}
+.Navbar-logo{
+    width: 50px;
+    height: 100%;
+    background-color: red;
+    cursor: pointer;
+}
+.navbar-links{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+.Link1, .Link2, .Link3{
+    cursor: pointer;
+    transition-timing-function: linear;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+.Link1:hover, .Link2:hover, .Link3:hover{
+    color: red;
+    transition: 0.15s;
+}
+.active {
+    color: red;
+}
+
+@media only screen and (max-width: 1000px){
+    .Navbar-content{
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+    }
+    
+
+}
