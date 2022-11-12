@@ -7,9 +7,7 @@ const HomeMid = () => {
 
       <div className="landing-middle-text">
         <p>
-          Paragraph about who we are, what we do, how we do it. Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit. Duis felis quam, rhoncus
-          at erat accumsan, viverra auctor sem. Mauris mollis
+          We as a group of enthusiasts have worked on a product that would help the college students save pocket money unconsciously.
         </p>
       </div>
     </div>
