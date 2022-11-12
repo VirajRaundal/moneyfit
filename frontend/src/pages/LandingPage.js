@@ -13,7 +13,9 @@ const LandingPage = () => {
         <p>BUDGETING IN YOUR POCKET</p>
         <button
           className="Landing-Button"
-          onClick={() => window.open("http://localhost:3000/home", "_self")}
+          onClick={() =>
+            window.open("https://gullak.netlify.app/home", "_self")
+          }
         >
           Discover More
         </button>

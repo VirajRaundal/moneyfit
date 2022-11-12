@@ -8,10 +8,8 @@ function EducationTop() {
       <div className="edu-para">
         <h1>Free and open stock market and financial education</h1>
         <p>
-          Varsity is an extensive and in-depth collection of stock market and
-          financial lessons created by Karthik Rangappa at Zerodha. It is openly
-          accessible to everyone and is one of the largest financial education
-          resources on the web.
+          An extensive and in-depth collection of stock market and financial
+          lessons. It is openly accessible to everyone.
         </p>
       </div>
       <div className="edu-img">

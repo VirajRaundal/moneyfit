@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+.loader {
+    width: 150px;
+    animation: coin-rotation 1s infinite linear;
+}
+@keyframes coin-rotation {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);}
+    100% {transform: rotate(360deg);}
+}
+
 ::-webkit-scrollbar {
     width: 7.5px;
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Loader from "../lib/loader";
 import "../styles/components/EducationBottom.css";
 import ArticleCard from "./ArticleCard";
 function EducationBottom() {
@@ -20,7 +21,7 @@ function EducationBottom() {
       <h2>Article</h2>
 
       {load ? (
-        <h1>Loading</h1>
+        <Loader />
       ) : (
         <div className="edu-grid">
           {data.map((indData) => (
