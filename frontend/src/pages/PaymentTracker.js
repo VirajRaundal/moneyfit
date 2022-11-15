@@ -45,16 +45,18 @@ const PaymentTracker = () => {
         <div className="pt-sub-body">
           <div className="pt-card-container">
             <h1 className="pt-cc-heading">Your Expenditures</h1>
-            {data.map((oneData, key) => (
-              <PaymentTrackerCard
-                name={oneData.transacBankAcc}
-                logo={oneData.transacBankAcc[0]}
-                date={oneData.transacDate}
-                time={oneData.transacTime}
-                amt={oneData.transacAmt}
-                category={oneData.transacName}
-              />
-            ))}
+            <div className="pt-card-container-div">
+              {data.map((oneData, key) => (
+                <PaymentTrackerCard
+                  name={oneData.transacBankAcc}
+                  logo={oneData.transacBankAcc[0]}
+                  date={oneData.transacDate}
+                  time={oneData.transacTime}
+                  amt={oneData.transacAmt}
+                  category={oneData.transacName}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="pt-chart-container">

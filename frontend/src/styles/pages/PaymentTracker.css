@@ -18,3 +18,8 @@
     color: #00d09b;
     margin-bottom: 20px;
 }
+.pt-card-container-div {
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
+}
