@@ -12,7 +12,7 @@ const PaymentTracker = () => {
   const [enterPie, setEnterPie] = useState(0);
 
   useEffect(() => {
-    fetch("https://gullak-hackophilia.herokuapp.com/payment-complete-history")
+    fetch("https://gullak-backend.onrender.com/payment-complete-history")
       .then((response) => response.json())
       .then((data) => {
         setData(data);

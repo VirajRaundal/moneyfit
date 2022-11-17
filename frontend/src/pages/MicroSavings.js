@@ -10,8 +10,17 @@ const MicroSavings = () => {
   const [totalAmt, setTotalAmt] = useState();
   const [finalAmt, setFinalAmt] = useState(2500);
 
-  useEffect(() => {
-    fetch("https://gullak-hackophilia.herokuapp.com/payment-complete-history")
+  const [newTransac, setNewTransac] = useState({
+    transacName: "",
+    transacBankAcc: "",
+    transacAmt: "",
+    transacTime: "",
+    transacDate: "",
+  });
+
+  function fetchData() {
+    setLoad(true);
+    fetch("https://gullak-backend.onrender.com/payment-complete-history")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -25,6 +34,54 @@ const MicroSavings = () => {
         }
         setTotalAmt(sum);
       });
+  }
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setNewTransac({ ...newTransac, [name]: value });
+  };
+
+  const date = new Date();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const dateInput = date.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    const timeInput = date.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+    setNewTransac({
+      ...newTransac,
+      transacDate: dateInput,
+      transacTime: timeInput,
+    });
+    fetch("https://gullak-backend.onrender.com/payment-complete-history", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTransac),
+    })
+      .then(() => {
+        setData({
+          heading: "",
+          description: "",
+          link: "",
+          color: "",
+        });
+      })
+      .then(() => fetchData());
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   function roundUpNearest10(num) {
@@ -77,6 +134,33 @@ const MicroSavings = () => {
           </div>
         </div>
       )}
+      <div className="ms-bottom">
+        <h1>Add Payment</h1>
+        <form onSubmit={handleSubmit} className="payment-input-form">
+          <input
+            type="text"
+            placeholder="Eg: Food"
+            name="transacName"
+            value={newTransac.transacName}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Eg: McDonalds"
+            name="transacBankAcc"
+            value={newTransac.transacBankAcc}
+            onChange={handleChange}
+          />
+          <input
+            type="number"
+            placeholder="Eg: ₹49"
+            name="transacAmt"
+            value={newTransac.transacAmt}
+            onChange={handleChange}
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 };

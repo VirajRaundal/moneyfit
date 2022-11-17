@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const ArticleInput = () => {
+  
   const [data, setData] = useState({
     heading: "",
     description: "",
