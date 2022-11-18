@@ -21,4 +21,4 @@ const ArticleSchema = new Schema({
 const PaymentHistory = mongoose.model(`Payment History`, DataSchema);
 const Article = mongoose.model("Articles", ArticleSchema);
 
-module.exports = { Data, Article, PaymentHistory };
+module.exports = { Article, PaymentHistory };
