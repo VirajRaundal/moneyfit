@@ -37,6 +37,7 @@ app.get("/", (req, res) => {
 
 app.post("/payment-history", (req, res) => {
   const payment = new PaymentHistory(req.body);
+  res.json(payment);
   payment
     .save()
     .then(() => console.log(`Payment history saved`))

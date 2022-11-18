@@ -7,11 +7,12 @@ import "../styles/pages/MicroSavings.css";
 const MicroSavings = () => {
   const [data, setData] = useState();
   const [load, setLoad] = useState(true);
+  const [sendLoad, setSendLoad] = useState(false);
   const [totalAmt, setTotalAmt] = useState();
   const [finalAmt, setFinalAmt] = useState(2500);
 
   const [newTransac, setNewTransac] = useState({
-    transacName: "",
+    transacName: "Food",
     transacBankAcc: "",
     transacAmt: "",
     transacTime: "",
@@ -46,22 +47,26 @@ const MicroSavings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dateInput = date.toLocaleDateString("en-GB", {
+    let dateInput = `${date.toLocaleDateString("en-GB", {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
-    });
-    const timeInput = date.toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
-    console.log(dateInput, timeInput);
+    })}`;
+    let timeInput = toString(
+      date.toLocaleTimeString("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      })
+    );
+    console.log(dateInput, "hello");
     setNewTransac({
       ...newTransac,
-      transacDate: toString(dateInput),
-      transacTime: `${timeInput}`,
+      transacDate: dateInput,
+      transacTime: timeInput,
     });
+    setSendLoad(true);
+    console.log(newTransac);
     fetch("https://gullak-backend.onrender.com/payment-history", {
       method: "POST",
       headers: {
@@ -70,14 +75,19 @@ const MicroSavings = () => {
       },
       body: JSON.stringify(newTransac),
     })
+      .then(() => console.log("success"))
       .then(() => {
         setNewTransac({
+          ...newTransac,
+          transacName: "Food",
           transacAmt: "",
-          transacName: "",
           transacBankAcc: "",
         });
       })
-      .then(() => fetchData());
+      .then(() => {
+        setSendLoad(false);
+        fetchData();
+      });
   };
 
   useEffect(() => {
@@ -136,8 +146,13 @@ const MicroSavings = () => {
       )}
       <div className="ms-bottom">
         <h1>Add Payment</h1>
+        {sendLoad ? <h1>sending...</h1> : <></>}
         <form onSubmit={handleSubmit} className="payment-input-form">
-          <select onChange={handleChange} name="transacName" value={newTransac.transacName}>
+          <select
+            onChange={handleChange}
+            name="transacName"
+            value={newTransac.transacName}
+          >
             <option value="Food">Food</option>
             <option value="Shopping">Shopping</option>
             <option value="Entertainment">Entertainment</option>

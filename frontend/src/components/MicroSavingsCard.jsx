@@ -6,15 +6,15 @@ import "../App.css";
 
 const MicroSavingsCard = (props) => {
   const iconArray = [
-    <FcShop size={40} />,
-    <FcClapperboard size={40} />,
     <MdOutlineFastfood size={40} color={"#ff6565"} />,
+    <FcClapperboard size={40} />,
+    <FcShop size={40} />,
   ];
 
   let imageArray = 0;
-  if (props.transacName === "Food") imageArray = 2;
+  if (props.transacName === "Food") imageArray = 0;
   else if (props.transacName === "Entertainment") imageArray = 1;
-  else if (props.transacName === "Shopping") imageArray = 0;
+  else if (props.transacName === "Shopping") imageArray = 2;
 
   let color = "";
 
