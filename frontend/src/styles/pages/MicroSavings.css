@@ -102,7 +102,7 @@ div::-webkit-scrollbar-thumb {
     width: 32%;
     font-family: "Roboto", sans-serif;
 }
-.payment-input-form input {
+.payment-input-form input, .payment-input-form select {
     padding: 10px;
     font-size: 18px;
 }

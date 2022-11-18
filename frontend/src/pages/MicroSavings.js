@@ -56,12 +56,13 @@ const MicroSavings = () => {
       minute: "2-digit",
       second: "2-digit",
     });
+    console.log(dateInput, timeInput);
     setNewTransac({
       ...newTransac,
-      transacDate: dateInput,
-      transacTime: timeInput,
+      transacDate: toString(dateInput),
+      transacTime: `${timeInput}`,
     });
-    fetch("https://gullak-backend.onrender.com/payment-complete-history", {
+    fetch("https://gullak-backend.onrender.com/payment-history", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -70,11 +71,10 @@ const MicroSavings = () => {
       body: JSON.stringify(newTransac),
     })
       .then(() => {
-        setData({
-          heading: "",
-          description: "",
-          link: "",
-          color: "",
+        setNewTransac({
+          transacAmt: "",
+          transacName: "",
+          transacBankAcc: "",
         });
       })
       .then(() => fetchData());
@@ -137,19 +137,18 @@ const MicroSavings = () => {
       <div className="ms-bottom">
         <h1>Add Payment</h1>
         <form onSubmit={handleSubmit} className="payment-input-form">
-          <input
-            type="text"
-            placeholder="Eg: Food"
-            name="transacName"
-            value={newTransac.transacName}
-            onChange={handleChange}
-          />
+          <select onChange={handleChange} name="transacName" value={newTransac.transacName}>
+            <option value="Food">Food</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Entertainment">Entertainment</option>
+          </select>
           <input
             type="text"
             placeholder="Eg: McDonalds"
             name="transacBankAcc"
             value={newTransac.transacBankAcc}
             onChange={handleChange}
+            required={true}
           />
           <input
             type="number"
@@ -157,6 +156,7 @@ const MicroSavings = () => {
             name="transacAmt"
             value={newTransac.transacAmt}
             onChange={handleChange}
+            required={true}
           />
           <button type="submit">Submit</button>
         </form>

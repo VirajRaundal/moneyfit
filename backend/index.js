@@ -45,12 +45,6 @@ app.post("/payment-history", (req, res) => {
     );
 });
 
-app.get("/payment-history", (req, res) => {
-  Data.find()
-    .then((response) => res.send(response))
-    .catch((err) => console.log(`Error while getting payment history: ${err}`));
-});
-
 app.get("/payment-complete-history", (req, res) => {
   PaymentHistory.find()
     .then((response) => res.send(response))
