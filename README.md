@@ -1,5 +1,5 @@
 # Gullak
-Link to our [website](https://gullak.netlify.app)
+### Link to our [website](https://gullak.netlify.app)
 
 ### Problem Statement:
 College is a period where you learn a lot of new things at once, meet people from all over
