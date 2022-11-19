@@ -1,5 +1,6 @@
 # Gullak
 ### Link to our [website](https://gullak.netlify.app)
+### Link to the [GitHub Repo](https://github.com/rijulsarji/gullak-hackophilia)
 
 ### Problem Statement:
 College is a period where you learn a lot of new things at once, meet people from all over
