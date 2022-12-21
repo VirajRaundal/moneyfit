@@ -7,7 +7,9 @@ function EducationBottom() {
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    fetch("https://gullak-hackophilia.herokuapp.com/article-publish")
+    fetch(
+      "https://gullak-backend.onrender.com/article-publish"
+    )
       .then((response) => response.json())
       .then((data) => {
         setData(data);
