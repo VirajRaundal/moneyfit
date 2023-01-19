@@ -30,7 +30,7 @@ const MicroSavingsCard = (props) => {
       <div className="msc-amt">
         <p>₹ {props.transacAmt}</p>
         <div></div>
-        <p>+ ₹ {props.addedAmt}</p>
+        <p style={{ color: "green", fontWeight: 600 }}>+ ₹ {props.addedAmt}</p>
       </div>
     </div>
   );

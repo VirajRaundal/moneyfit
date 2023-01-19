@@ -22,6 +22,7 @@
     height: 60px;
     padding-top: 10px;
     padding-bottom: 10px;
+    z-index: 10;
 }
 .Navbar-content p{
     font-size: 20px;

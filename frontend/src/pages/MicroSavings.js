@@ -3,6 +3,7 @@ import MicroSavingsCard from "../components/MicroSavingsCard";
 import Loader from "../lib/loader";
 import { runConfetti } from "../lib/utils";
 import "../styles/pages/MicroSavings.css";
+import { motion } from "framer-motion";
 
 const MicroSavings = () => {
   const [data, setData] = useState();
@@ -92,6 +93,7 @@ const MicroSavings = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   function roundUpNearest10(num) {
@@ -104,7 +106,12 @@ const MicroSavings = () => {
         <Loader />
       ) : (
         <div className="ms-sub-body">
-          <div className="ms-payment-container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.25, duration: 0.25 }}
+            className="ms-payment-container"
+          >
             <h1>Payment History</h1>
             <div className="ms-card-container">
               {data.map((oneData, key) => (
@@ -119,9 +126,14 @@ const MicroSavings = () => {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="ms-saving-container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.25 }}
+            className="ms-saving-container"
+          >
             <h1>Your savings</h1>
             <div>
               <h3>₹{totalAmt}</h3>
@@ -141,7 +153,7 @@ const MicroSavings = () => {
                 <p>₹ {finalAmt}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
       <div className="ms-bottom">

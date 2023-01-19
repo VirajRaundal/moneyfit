@@ -3,6 +3,7 @@ import "../styles/pages/PaymentTracker.css";
 import PaymentTrackerCard from "../components/PaymentTrackerCard";
 import Chart from "../components/Chart";
 import Loader from "../lib/loader";
+import {motion} from "framer-motion"
 
 const PaymentTracker = () => {
   const [data, setData] = useState();
@@ -10,6 +11,7 @@ const PaymentTracker = () => {
   const [foodPie, setFoodPie] = useState(0);
   const [shopPie, setShopPie] = useState(0);
   const [enterPie, setEnterPie] = useState(0);
+  const [totalSum, setTotalSum] = useState(0);
 
   useEffect(() => {
     fetch("https://gullak-backend.onrender.com/payment-complete-history")
@@ -17,6 +19,7 @@ const PaymentTracker = () => {
       .then((data) => {
         setData(data);
         setLoad(false);
+        console.log(data);
 
         let shopSum = 0;
         let foodSum = 0;
@@ -34,6 +37,8 @@ const PaymentTracker = () => {
         setShopPie(shopSum);
         setFoodPie(foodSum);
         setEnterPie(enterSum);
+
+        setTotalSum(shopSum + foodSum + enterSum);
       });
   }, []);
 
@@ -43,7 +48,12 @@ const PaymentTracker = () => {
         <Loader />
       ) : (
         <div className="pt-sub-body">
-          <div className="pt-card-container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.25, duration: 0.25 }}
+            className="pt-card-container"
+          >
             <h1 className="pt-cc-heading">Your Expenditures</h1>
             <div className="pt-card-container-div">
               {data.map((oneData, key) => (
@@ -57,13 +67,18 @@ const PaymentTracker = () => {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
 
           <div className="pt-chart-container">
             {shopPie === undefined || shopPie === 0 ? (
               <h1>loading...</h1>
             ) : (
-              <Chart shopSum={shopPie} foodSum={foodPie} enterSum={enterPie} />
+              <Chart
+                shopSum={shopPie}
+                foodSum={foodPie}
+                enterSum={enterPie}
+                totalSum={totalSum}
+              />
             )}
           </div>
         </div>

@@ -9,7 +9,7 @@ function Chart(props) {
     labels: ["Food", "Entertainment", "Shopping"],
     datasets: [
       {
-        label: "Rainfall",
+        label: "Expenditure",
         backgroundColor: [
           "#ff8080",
           "#99bbff",
@@ -32,6 +32,10 @@ function Chart(props) {
 
   return (
     <div className="chart-body">
+      <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", position: "absolute", gap: "10px", backgroundColor: "transparent", width: "500px", height: "500px", zIndex: -1}}>
+        <p style={{fontSize: 24, fontWeight: 600}}>Total Spent</p>
+        <p style={{fontSize: 18}}>₹ {props.totalSum}</p>
+      </div>
       <Doughnut
         data={state}
         options={{
