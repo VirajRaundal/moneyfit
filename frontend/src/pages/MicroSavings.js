@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MicroSavingsCard from "../components/MicroSavingsCard";
 import Loader from "../lib/loader";
 import { runConfetti } from "../lib/utils";
 import "../styles/pages/MicroSavings.css";
 import { motion } from "framer-motion";
+import { ApiData } from "../App";
 
 const MicroSavings = () => {
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(true);
   const [sendLoad, setSendLoad] = useState(false);
   const [totalAmt, setTotalAmt] = useState();
   const [finalAmt, setFinalAmt] = useState(2500);
@@ -20,22 +19,26 @@ const MicroSavings = () => {
     transacDate: "",
   });
 
-  function fetchData() {
-    setLoad(true);
-    fetch("https://gullak-backend.onrender.com/payment-complete-history")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        const size = data.length;
-        setLoad(false);
+  // TODO:
+  const { contextData, contextLoad, setLoad, fetchApi } = useContext(ApiData);
+  if(contextLoad === false)
+    console.log(contextData)
 
-        let sum = 0;
-        for (let i = 0; i < size; i++) {
-          sum =
-            sum + (roundUpNearest10(data[i].transacAmt) - data[i].transacAmt);
-        }
-        setTotalAmt(sum);
-      });
+
+  // ////////////////////////////////////////////////////////
+
+  function fetchData() {
+    if(contextLoad === false) {
+      const size = contextData.length;
+      setLoad(false);
+
+      let sum = 0;
+      for (let i = 0; i < size; i++) {
+        sum =
+          sum + (roundUpNearest10(contextData[i].transacAmt) - contextData[i].transacAmt);
+      }
+      setTotalAmt(sum);
+    }
   }
 
   const handleChange = (e) => {
@@ -60,7 +63,6 @@ const MicroSavings = () => {
         second: "2-digit",
       })
     );
-    console.log(dateInput, "hello");
     setNewTransac({
       ...newTransac,
       transacDate: dateInput,
@@ -87,7 +89,7 @@ const MicroSavings = () => {
       })
       .then(() => {
         setSendLoad(false);
-        fetchData();
+        fetchApi();
       });
   };
 
@@ -102,7 +104,7 @@ const MicroSavings = () => {
 
   return (
     <div className="ms-body">
-      {load ? (
+      {contextLoad ? (
         <Loader />
       ) : (
         <div className="ms-sub-body">
@@ -114,7 +116,7 @@ const MicroSavings = () => {
           >
             <h1>Payment History</h1>
             <div className="ms-card-container">
-              {data.map((oneData, key) => (
+              {contextData.map((oneData, key) => (
                 <MicroSavingsCard
                   transacBankAcc={oneData.transacBankAcc}
                   transacAmt={oneData.transacAmt}
