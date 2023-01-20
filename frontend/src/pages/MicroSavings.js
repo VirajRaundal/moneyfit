@@ -5,11 +5,14 @@ import { runConfetti } from "../lib/utils";
 import "../styles/pages/MicroSavings.css";
 import { motion } from "framer-motion";
 import { ApiData } from "../App";
+import { FaArrowUp } from "react-icons/fa";
+import SuccessAnimation from "../lib/successAnimation";
 
 const MicroSavings = () => {
   const [sendLoad, setSendLoad] = useState(false);
   const [totalAmt, setTotalAmt] = useState();
   const [finalAmt, setFinalAmt] = useState(2500);
+  const [successBool, setSuccessBool] = useState(false);
 
   const [newTransac, setNewTransac] = useState({
     transacName: "Food",
@@ -34,8 +37,7 @@ const MicroSavings = () => {
 
       let sum = 0;
       for (let i = 0; i < size; i++) {
-        sum =
-          sum + (roundUpNearest10(contextData[i].transacAmt) - contextData[i].transacAmt);
+        sum = sum + (roundUpNearest10(contextData[i].transacAmt) - contextData[i].transacAmt);
       }
       setTotalAmt(sum);
     }
@@ -96,7 +98,7 @@ const MicroSavings = () => {
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line
-  }, []);
+  }, [fetchApi]);
 
   function roundUpNearest10(num) {
     return Math.ceil(num / 10) * 10;
@@ -137,18 +139,23 @@ const MicroSavings = () => {
             className="ms-saving-container"
           >
             <h1>Your savings</h1>
-            <div>
+            {/* <SuccessAnimation /> */}
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10 }}>
               <h3>₹{totalAmt}</h3>
+              <FaArrowUp color="green" size={18} />
             </div>
             <button
               onClick={() => {
                 setFinalAmt((prev) => prev + totalAmt);
                 runConfetti();
                 setTotalAmt(0);
+                setSuccessBool(true);
               }}
             >
               Send to piggy bank
             </button>
+
+            {successBool && <div style={{position: "absolute"}}><SuccessAnimation /></div>}
 
             <div className="ms-bottom">
               <div className="ms-piggy-bank">

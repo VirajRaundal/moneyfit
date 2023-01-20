@@ -17,6 +17,8 @@ const App = () => {
 
   const [data, setData] = useState();
   const [load, setLoad] = useState(true);
+  const [articleData, setArticleData] = useState();
+  const [articleLoad, setArticleLoad] = useState(true);
 
   function fetchApi() {
     fetch("https://gullak-backend.onrender.com/payment-complete-history")
@@ -28,15 +30,25 @@ const App = () => {
     });
   }
 
+  function fetchArticleApi() {
+    fetch("https://gullak-backend.onrender.com/article-publish")
+      .then((response) => response.json())
+      .then((data) => {
+        setArticleData(data);
+        setArticleLoad(false);
+      });
+  }
+
   useEffect(() => {
     fetchApi();
+    fetchArticleApi();
   }, [])
 
   return (
     <>
 
       {window.location.pathname === "/" ? <LandingPage /> : (
-        <ApiData.Provider value={{contextData: data, contextLoad: load, setLoad: setLoad, fetchApi: fetchApi}}>
+        <ApiData.Provider value={{contextData: data, contextLoad: load, setLoad: setLoad, fetchApi: fetchApi, articleData: articleData, articleLoad: articleLoad}}>
           <Navbar />
           <Routes>
             {/* <Route path="/" element={<LandingPage />} /> */}

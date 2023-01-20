@@ -9,8 +9,6 @@ import { ApiData } from "../App";
 const PaymentTracker = () => {
   const { contextData, contextLoad } = useContext(ApiData);
 
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(true);
   const [foodPie, setFoodPie] = useState(0);
   const [shopPie, setShopPie] = useState(0);
   const [enterPie, setEnterPie] = useState(0);
@@ -41,6 +39,7 @@ const PaymentTracker = () => {
 
   useEffect(() => {
     calculatePieRatio();
+    // eslint-disable-next-line
   }, []);
 
   return (

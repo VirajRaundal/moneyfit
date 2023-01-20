@@ -11,6 +11,9 @@
     height: 60vh;
     padding: 20px;
     overflow-y: scroll;
+    border: 1px solid black;
+    padding: 25px;
+    border-radius: 10px;
 }
 .pt-cc-heading {
     font-size: 32px;
