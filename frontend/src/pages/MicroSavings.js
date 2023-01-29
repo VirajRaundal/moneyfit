@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MicroSavingsCard from "../components/MicroSavingsCard";
 import Loader from "../lib/loader";
 import { runConfetti } from "../lib/utils";
 import "../styles/pages/MicroSavings.css";
 import { motion } from "framer-motion";
+import { ApiData } from "../App";
+import { FaArrowUp } from "react-icons/fa";
+import SuccessAnimation from "../lib/successAnimation";
 
 const MicroSavings = () => {
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(true);
   const [sendLoad, setSendLoad] = useState(false);
   const [totalAmt, setTotalAmt] = useState();
   const [finalAmt, setFinalAmt] = useState(2500);
+  const [successBool, setSuccessBool] = useState(false);
 
   const [newTransac, setNewTransac] = useState({
     transacName: "Food",
@@ -20,22 +22,25 @@ const MicroSavings = () => {
     transacDate: "",
   });
 
-  function fetchData() {
-    setLoad(true);
-    fetch("https://gullak-backend.onrender.com/payment-complete-history")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        const size = data.length;
-        setLoad(false);
+  // TODO:
+  const { contextData, contextLoad, setLoad, fetchApi } = useContext(ApiData);
+  if(contextLoad === false)
+    console.log(contextData)
 
-        let sum = 0;
-        for (let i = 0; i < size; i++) {
-          sum =
-            sum + (roundUpNearest10(data[i].transacAmt) - data[i].transacAmt);
-        }
-        setTotalAmt(sum);
-      });
+
+  // ////////////////////////////////////////////////////////
+
+  function fetchData() {
+    if(contextLoad === false) {
+      const size = contextData.length;
+      setLoad(false);
+
+      let sum = 0;
+      for (let i = 0; i < size; i++) {
+        sum = sum + (roundUpNearest10(contextData[i].transacAmt) - contextData[i].transacAmt);
+      }
+      setTotalAmt(sum);
+    }
   }
 
   const handleChange = (e) => {
@@ -60,7 +65,6 @@ const MicroSavings = () => {
         second: "2-digit",
       })
     );
-    console.log(dateInput, "hello");
     setNewTransac({
       ...newTransac,
       transacDate: dateInput,
@@ -87,22 +91,22 @@ const MicroSavings = () => {
       })
       .then(() => {
         setSendLoad(false);
-        fetchData();
+        fetchApi();
       });
   };
 
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line
-  }, []);
+  }, [fetchApi]);
 
   function roundUpNearest10(num) {
     return Math.ceil(num / 10) * 10;
   }
 
   return (
-    <div className="ms-body">
-      {load ? (
+    <div className="ms-body" style={{ backgroundColor: "#f4f1de"}}>
+      {contextLoad ? (
         <Loader />
       ) : (
         <div className="ms-sub-body">
@@ -114,7 +118,7 @@ const MicroSavings = () => {
           >
             <h1>Payment History</h1>
             <div className="ms-card-container">
-              {data.map((oneData, key) => (
+              {contextData.map((oneData, key) => (
                 <MicroSavingsCard
                   transacBankAcc={oneData.transacBankAcc}
                   transacAmt={oneData.transacAmt}
@@ -135,23 +139,26 @@ const MicroSavings = () => {
             className="ms-saving-container"
           >
             <h1>Your savings</h1>
-            <div>
+            {/* <SuccessAnimation /> */}
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10 }} className="ms-amount-div">
               <h3>₹{totalAmt}</h3>
+              <FaArrowUp color="green"  />
             </div>
             <button
               onClick={() => {
                 setFinalAmt((prev) => prev + totalAmt);
                 runConfetti();
                 setTotalAmt(0);
+                setSuccessBool(true);
               }}
             >
               Send to piggy bank
             </button>
 
-            <div className="ms-bottom">
-              <div className="ms-piggy-bank">
-                <p>₹ {finalAmt}</p>
-              </div>
+            {successBool && <div style={{position: "absolute"}}><SuccessAnimation /></div>}
+
+            <div className="ms-piggy-bank">
+              <p>₹ {finalAmt}</p>
             </div>
           </motion.div>
         </div>

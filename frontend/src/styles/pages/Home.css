@@ -1,15 +1,15 @@
 .landing-page{
     display: flex;
     justify-content: center;
+    background-color: #f4f1de;
+    padding-top: 40px;
 }
 .landing-center{
     width: 80%;
 }
 
-@media only screen and (max-width: 1000px){
+@media screen and (max-width: 600px){
     .landing-center{
-        width: 95%;
+        width: 90%;
     }
-    
-
 }

@@ -11,11 +11,9 @@ function Chart(props) {
       {
         label: "Expenditure",
         backgroundColor: [
-          "#ff8080",
-          "#99bbff",
-          "#99ffd6",
-          "#ffcc99",
-          "#ff99ff",
+          "#241553",
+          "#FC1302",
+          "#F2F541",
         ],
         // hoverBackgroundColor: [
         //   "#501800",

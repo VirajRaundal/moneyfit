@@ -16,6 +16,9 @@
     align-items: center;
     gap: 25px;
 }
+.msc-desc:first-child {
+    font-size: 40px;
+}
 .msc-desc p {
     font-size: 20px;
     font-weight: 700;
@@ -34,4 +37,17 @@
     height: 40px;
     width: 1px;
     background-color: #3858FF;
+}
+
+@media screen and (max-width: 600px) {
+    .msc-desc:first-child {
+        font-size: 24px;
+    }
+    .msc-desc p {
+        font-size: 14px;
+    }
+    .msc-amt {
+        width: 35%;
+        font-size: 14px;
+    }
 }

@@ -22,6 +22,7 @@ const HomeTop = () => {
             fontStyle: "italic",
             textAlign: "right",
             marginTop: 20,
+            marginRight: 15
           }}
         >
           ~Benjamin Franklin

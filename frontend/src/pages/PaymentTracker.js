@@ -1,50 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../styles/pages/PaymentTracker.css";
 import PaymentTrackerCard from "../components/PaymentTrackerCard";
 import Chart from "../components/Chart";
 import Loader from "../lib/loader";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
+import { ApiData } from "../App";
 
 const PaymentTracker = () => {
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(true);
+  const { contextData, contextLoad } = useContext(ApiData);
+
   const [foodPie, setFoodPie] = useState(0);
   const [shopPie, setShopPie] = useState(0);
   const [enterPie, setEnterPie] = useState(0);
   const [totalSum, setTotalSum] = useState(0);
 
+  function calculatePieRatio() {
+    if (contextLoad === false) {
+      let shopSum = 0;
+      let foodSum = 0;
+      let enterSum = 0;
+
+      for (let i = 0; i < contextData.length; i++) {
+        if (contextData[i].transacName === "Shopping")
+          shopSum = shopSum + contextData[i].transacAmt;
+        else if (contextData[i].transacName === "Food")
+          foodSum = foodSum + contextData[i].transacAmt;
+        else if (contextData[i].transacName === "Entertainment")
+          enterSum = enterSum + contextData[i].transacAmt;
+      }
+
+      setShopPie(shopSum);
+      setFoodPie(foodSum);
+      setEnterPie(enterSum);
+
+      setTotalSum(shopSum + foodSum + enterSum);
+    }
+  }
+
   useEffect(() => {
-    fetch("https://gullak-backend.onrender.com/payment-complete-history")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        setLoad(false);
-        console.log(data);
-
-        let shopSum = 0;
-        let foodSum = 0;
-        let enterSum = 0;
-
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].transacName === "Shopping")
-            shopSum = shopSum + data[i].transacAmt;
-          else if (data[i].transacName === "Food")
-            foodSum = foodSum + data[i].transacAmt;
-          else if (data[i].transacName === "Entertainment")
-            enterSum = enterSum + data[i].transacAmt;
-        }
-
-        setShopPie(shopSum);
-        setFoodPie(foodSum);
-        setEnterPie(enterSum);
-
-        setTotalSum(shopSum + foodSum + enterSum);
-      });
+    calculatePieRatio();
+    // eslint-disable-next-line
   }, []);
 
   return (
     <div className="pt-body">
-      {load ? (
+      {contextLoad ? (
         <Loader />
       ) : (
         <div className="pt-sub-body">
@@ -56,7 +56,7 @@ const PaymentTracker = () => {
           >
             <h1 className="pt-cc-heading">Your Expenditures</h1>
             <div className="pt-card-container-div">
-              {data.map((oneData, key) => (
+              {contextData.map((oneData, key) => (
                 <PaymentTrackerCard
                   name={oneData.transacBankAcc}
                   logo={oneData.transacBankAcc[0]}

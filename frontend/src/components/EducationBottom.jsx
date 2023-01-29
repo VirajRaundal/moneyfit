@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Loader from "../lib/loader";
 import "../styles/components/EducationBottom.css";
 import ArticleCard from "./ArticleCard";
 import { motion } from "framer-motion";
+import { ApiData } from "../App";
 
 function EducationBottom() {
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(true);
 
-  useEffect(() => {
-    fetch(
-      "https://gullak-backend.onrender.com/article-publish"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        setLoad(false);
-      });
-    // eslint-disable-next-line
-  }, []);
+  const { articleData, articleLoad } = useContext(ApiData);
 
   return (
     <div>
@@ -30,7 +19,7 @@ function EducationBottom() {
         Article
       </motion.h2>
 
-      {load ? (
+      {articleLoad ? (
         <Loader />
       ) : (
         <motion.div
@@ -39,7 +28,7 @@ function EducationBottom() {
           transition={{ delay: 0.5, duration: 0.25 }}
           className="edu-grid"
         >
-          {data.map((indData) => (
+          {articleData.map((indData) => (
             <>
               <ArticleCard
                 title={indData.heading}
