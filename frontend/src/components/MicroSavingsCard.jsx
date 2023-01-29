@@ -6,9 +6,9 @@ import "../App.css";
 
 const MicroSavingsCard = (props) => {
   const iconArray = [
-    <MdOutlineFastfood size={40} color={"#ff6565"} />,
-    <FcClapperboard size={40} />,
-    <FcShop size={40} />,
+    <MdOutlineFastfood color={"#ff6565"} />,
+    <FcClapperboard />,
+    <FcShop />,
   ];
 
   let imageArray = 0;
@@ -18,7 +18,7 @@ const MicroSavingsCard = (props) => {
 
   let color = "";
 
-  if (props.numKey % 2 === 0) color = "#c7d0ff";
+  if (props.numKey % 2 === 0) color = "#f4f1de";
   else if (props.numKey % 2 === 1) color = "#ffffff";
 
   return (

@@ -105,7 +105,7 @@ const MicroSavings = () => {
   }
 
   return (
-    <div className="ms-body">
+    <div className="ms-body" style={{ backgroundColor: "#f4f1de"}}>
       {contextLoad ? (
         <Loader />
       ) : (
@@ -140,9 +140,9 @@ const MicroSavings = () => {
           >
             <h1>Your savings</h1>
             {/* <SuccessAnimation /> */}
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10 }}>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10 }} className="ms-amount-div">
               <h3>₹{totalAmt}</h3>
-              <FaArrowUp color="green" size={18} />
+              <FaArrowUp color="green"  />
             </div>
             <button
               onClick={() => {
@@ -157,10 +157,8 @@ const MicroSavings = () => {
 
             {successBool && <div style={{position: "absolute"}}><SuccessAnimation /></div>}
 
-            <div className="ms-bottom">
-              <div className="ms-piggy-bank">
-                <p>₹ {finalAmt}</p>
-              </div>
+            <div className="ms-piggy-bank">
+              <p>₹ {finalAmt}</p>
             </div>
           </motion.div>
         </div>

@@ -49,6 +49,16 @@ div::-webkit-scrollbar-thumb {
     color: var(--msc-primary-color);
     font-size: 24px;
 }
+
+.ms-amount-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ms-amount-div:nth-child(2) {
+    font-size: 18px;
+}
+
 .ms-saving-container button {
     background: var(--msc-primary-color);
     width: 50%;
@@ -118,4 +128,61 @@ div::-webkit-scrollbar-thumb {
 .payment-input-form button:hover {
     background-color: var(--msc-primary-color);
     color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .ms-body {
+        width: 100vw;
+    }
+    .ms-sub-body {
+        width: 90vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 75px;
+    }
+    .ms-payment-container {
+        width: 100%;
+    }
+
+    .ms-saving-container {
+        width: 100%;
+    }
+    .ms-saving-container h3 {
+        /* margin-top: 30px; */
+    }
+
+    .ms-amount-div {
+        margin-top: 20px;
+    }
+    .ms-amount-div:nth-child(2) {
+        font-size: 25px;
+    }
+    .ms-saving-container button {
+        margin-top: 50px;
+        width: 200px;
+    }
+
+    .ms-piggy-bank {
+        margin-top: 50px;
+        height: 200px;
+        width: 200px;
+    }
+
+    .ms-bottom h1 {
+        text-align: center;
+        margin-left: 0px;
+    }
+    .payment-input-form {
+        margin-top: 20px;
+        width: 90vw;
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 30px;
+    }
 }
