@@ -9,12 +9,12 @@ const LandingPage = () => {
         <p>TEAM PANDAVS</p>
       </div> */}
       <div className="Landing-page-text">
-        <h3>GULLAK</h3>
+        <h3>MoneyFit</h3>
         <p>BUDGETING IN YOUR POCKET</p>
         <button
           className="Landing-Button"
           onClick={() =>
-            window.open("https://gullak.netlify.app/home", "_self")
+            window.open("http://localhost:3000/home", "_self")
           }
         >
           Discover More

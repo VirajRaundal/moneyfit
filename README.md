@@ -1,42 +1,9 @@
-# Gullak
-### Link to our [website](https://gullak.netlify.app)
-### Link to the [GitHub Repo](https://github.com/rijulsarji/gullak-hackophilia)
+# MoneyFit
 
-### Problem Statement:
-College is a period where you learn a lot of new things at once, meet people from all over
-the world, and learn how to live independently. However, one area where most
-engineering college students fall short is learning about money and the financial world in
-general.
-Some college students think they are unprepared to manage their own money, and the
-others are concerned about having enough money to get through the semester.
-Our product aims to solve this problem by providing services such as micro-savings,
-personal finance management and financial know-how to the users of the product.
+### Abstract:
+The level of knowledge, among teenagers, especially those in college is disappointingly low with only 16.7% on average. This research paper introduces MoneyFit, a platform that aims to tackle this significant problem. MoneyFit utilizes cutting edge technologies like Node.js, React.js and MongoDB to provide user-friendly interfaces specifically designed for new learners.
 
-
-### Feature description:
-1) Micro-savings: Think of it as the digital version of a piggy bank. For example,
-every time you spend money, the app will round it off to the next nearest 10. The
-extra amount will then be automatically put into your digital piggy bank.
-For example, if you pay ₹25 for an item then the app will automatically put
-₹5 in your piggy bank.
-2) Personal expenditure and savings tracker: This feature will show the user their
-expenditure habits. This will help the user track their spending and hence become
-more aware of their financial situation. The user will also be able to track their
-savings and set a goal that they would like to hit before a particular amount of
-time.
-3) Financial education: Financial education will be compiled together with the latest
-news from the finance world. We plan to structure the financial education on the
-product in such a way that it takes the form of a story rather than a conventional
-boring article about savings etc. We think stories are a better way to teach people
-anything!
-
-### Project Screenshots
-
-![alt](https://my-aws-image-upload.s3.amazonaws.com/Screenshot_20221119_231850.png)
-
-![alt](https://my-aws-image-upload.s3.amazonaws.com/Screenshot_20221119_232032.png)
-
-![alt](https://my-aws-image-upload.s3.amazonaws.com/Screenshot_20221119_232140.png)
+The platform offers a range of resources on money management, including budgeting, saving and investing. It fills the gap in financial education that currently exists. One notable feature of MoneyFit is its analysis of spending habits, which is displayed through pie charts. This enables users to gain insights into their financial behaviors. By bridging the gap in literacy and promoting financial habits MoneyFit seeks to empower Indian college students with the knowledge and tools they need for a financially stable future.
 
 ## Running the code scripts for development/production
 In the project directory, you can run
